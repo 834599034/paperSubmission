@@ -8,11 +8,11 @@ spring:
   datasource:
     username: root
     password: 608136
-    url: jdbc:mysql://47.103.212.239:3306/paper?allowMultiQueries=true
+    url: jdbc:mysql://xx.:3306/paper?allowMultiQueries=true
     driver-class-name: com.mysql.cj.jdbc.Driver
   #redis配置文件
   redis:
-    host: 47.103.212.239
+    host: yourip
     port: 6379
 
 #mybatis-plus 配置文件
@@ -28,13 +28,13 @@ mybatis-plus:
 
 #自定义配置
 jwt:
-  secret-key: obama
+  secret-key: your key
 
 #阿里云oss配置
 alibaba:
   cloud:
-    access-key: LTAI5tGeaikpL8A3jFvbNB4a
-    secret-key: lm6zFSk4teptL0uIx1vRFNttf79EtW
+    access-key: your accesskey
+    secret-key: your sercretkey
     oss:
-      endpoint: oss-cn-shanghai.aliyuncs.com
-      bucket: paper-submission
+      endpoint: your endpoint
+      bucket: your bucket
