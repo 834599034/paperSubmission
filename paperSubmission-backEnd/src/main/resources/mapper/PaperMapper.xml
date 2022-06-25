@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.papersubmission.mapper.PaperMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.papersubmission.entity.Paper">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="title" column="title" jdbcType="VARCHAR"/>
+            <result property="firstAuthor" column="first_author" jdbcType="INTEGER"/>
+            <result property="otherAuthor" column="other_author" jdbcType="VARCHAR"/>
+            <result property="primaryKey" column="primary_key" jdbcType="VARCHAR"/>
+            <result property="abstractContext" column="abstract_context" jdbcType="VARCHAR"/>
+            <result property="paperUrl" column="paper_url" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,title,first_author,
+        other_author,primary_key,abstract_context,
+        paper_url
+    </sql>
+</mapper>

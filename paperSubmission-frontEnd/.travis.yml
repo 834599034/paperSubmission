@@ -1,0 +1,33 @@
+os: linux
+language: node_js
+node_js:
+- 16.15.0
+branches:
+  only:
+    - master #设置只监听哪个分支
+cache:
+  directories:
+  - node_modules
+
+before_install:
+  - sudo apt-get update
+  - sudo apt-get -y install sshpass
+
+install:
+  - npm install
+before_script:
+
+script:
+  - npm run build:prod
+
+
+after_script:
+  - sh ./deploy.sh
+  # git fetch --all && git reset --hard origin/deploy && git pull'
+  - sshpass -p $hxpass scp -o stricthostkeychecking=no -r ./dist/* root@47.103.212.239:/paperSubmission/frontend_travis/
+
+addons:
+  ssh_known_hosts: 47.103.212.239 # 添加 SSH 信任列表
+
+after_success: # script 阶段成功时执行
+# - scp  -o stricthostkeychecking=no -r ./dist/* root@47.103.212.239:/paperSubmission/frontend_travis/  # 使用scp拷贝到服务

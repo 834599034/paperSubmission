@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.papersubmission.mapper.ReviewerInviteMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.papersubmission.entity.ReviewerInvite">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="submitId" column="submit_id" jdbcType="INTEGER"/>
+            <result property="paperId" column="paper_id" jdbcType="INTEGER"/>
+            <result property="status" column="status" jdbcType="TINYINT"/>
+            <result property="suggestion" column="suggestion" jdbcType="VARCHAR"/>
+            <result property="conclusion" column="conclusion" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,submit_id,paper_id,
+        status,suggestion,conclusion
+    </sql>
+</mapper>

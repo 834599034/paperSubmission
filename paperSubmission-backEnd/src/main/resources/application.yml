@@ -1,0 +1,40 @@
+#服务启动端口
+server:
+  port: 18888
+
+
+spring:
+  #数据库配置文件
+  datasource:
+    username: root
+    password: 608136
+    url: jdbc:mysql://47.103.212.239:3306/paper?allowMultiQueries=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  #redis配置文件
+  redis:
+    host: 47.103.212.239
+    port: 6379
+
+#mybatis-plus 配置文件
+mybatis-plus:
+  #mapper文件夹在默认位置，与默认配置一致（可以省略此项配置）
+  mapper-locations: classpath:/mapper/**/*.xml
+  #mybatis-plus配置控制台打印完整带参数SQL语句
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+
+
+#自定义配置
+jwt:
+  secret-key: obama
+
+#阿里云oss配置
+alibaba:
+  cloud:
+    access-key: LTAI5tGeaikpL8A3jFvbNB4a
+    secret-key: lm6zFSk4teptL0uIx1vRFNttf79EtW
+    oss:
+      endpoint: oss-cn-shanghai.aliyuncs.com
+      bucket: paper-submission

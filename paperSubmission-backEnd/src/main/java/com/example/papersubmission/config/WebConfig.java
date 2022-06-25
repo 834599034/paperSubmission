@@ -1,0 +1,35 @@
+package com.example.papersubmission.config;
+
+import com.example.papersubmission.interceptor.GlobalInterceptor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+@Configuration
+public class WebConfig implements WebMvcConfigurer {
+
+
+    @Autowired
+    private GlobalInterceptor globalInterceptor;
+
+    public void addInterceptors(InterceptorRegistry registry) {
+        //除登陆请求，需校验token
+        registry.addInterceptor(globalInterceptor)
+                .addPathPatterns("/**")
+                .excludePathPatterns("/papersubmission/client/login")
+                .excludePathPatterns("/error")
+                .excludePathPatterns("/papersubmission/client/register");
+
+    }
+
+//    @Override
+//    public void addCorsMappings(CorsRegistry registry) {
+//        registry.addMapping("/**")//项目中的所有接口都支持跨域
+//                .allowedOriginPatterns("*")//所有地址都可以访问，也可以配置具体地址
+//                .allowCredentials(true)
+//                .allowedMethods("*")//"GET", "HEAD", "POST", "PUT", "DELETE", "OPTIONS"
+//                .maxAge(3600);// 跨域允许时间
+//    }
+}
